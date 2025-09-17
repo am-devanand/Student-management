@@ -1,23 +1,3 @@
-print("\n\nSelect the option to continue:")
-
-while True:
-    print("\n1) Add student\n2) Update Student\n3) Remove Student\n4) List Students\n5) Exit Program\n")
-    
-
-    if choice == 1:
-        add_student()
-    elif choice == 2:
-        update_student()
-    elif choice == 3:
-        remove_student()
-    elif choice == 4:
-        list_students()
-    elif choice == 5:
-        print("Exiting Program...")
-        break
-    else:
-        print("Invalid Choice. Please select a valid option.\n")
-
 students = []
 
 def add_student():
@@ -36,10 +16,10 @@ def add_student():
     print("Student added successfully.\n")
 
 def update_student():
-    name = input("Enter name number of student to update: ")
+    name = input("Enter name of student to update: ")
     for student in students:
-        if student['name'] == name:
-            student['roll'] = input("Enter new roll: ")
+        if student['Name'].lower() == name.lower():
+            student['Roll'] = input("Enter new roll: ")
             student['Class'] = input("Enter new class: ")
             student['Age'] = input("Enter new age: ")
             student['Phone'] = input("Enter new phone number: ")
@@ -63,4 +43,28 @@ def list_students():
             print(f"{key}: {value}")
     print()
 
+print("\n\nSelect the option to continue:")
 
+while True:
+    print("\n1) Add student\n2) Update Student\n3) Remove Student\n4) List Students\n5) Exit Program\n")
+    choice = input("Enter choice: ")
+    
+    if choice.isdigit():
+        choice = int(choice)
+    else:
+        print("Invalid input. Please enter a number.\n")
+        continue
+    
+    if choice == 1:
+        add_student()
+    elif choice == 2:
+        update_student()
+    elif choice == 3:
+        remove_student()
+    elif choice == 4:
+        list_students()
+    elif choice == 5:
+        print("Exiting Program...")
+        break
+    else:
+        print("Invalid Choice. Please select a valid option.\n")
